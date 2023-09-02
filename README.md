@@ -1,10 +1,8 @@
 # UAARG Guidebook
 
-<div style="width: 100%; display: flex; align-items: center">
-    <h4>
-      <a href="https://uaarg.com/guide/">Read it Now</a>
-    </h4>
-</div>
+<h4 align=center>
+  [<a href="https://uaarg.com/guide/">Read it Now</a>]
+</h4>
 
 This is an mdbook containing documentation and tutorials for those working with
 the UAARG code bases.
