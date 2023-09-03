@@ -7,4 +7,6 @@
    - [Shepard](./shepard.md)
  - [Important Technologies](./tech.md)
    - [MAVLink](./mavlink.md)
+<!--  Temporarily removed as this page is empty
  - [Common Workflows + Tips](./workflows.md)
+-->
