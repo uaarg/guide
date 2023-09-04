@@ -5,6 +5,10 @@
 We use a modified version of [git
 flow](https://nvie.com/posts/a-successful-git-branching-model/).
 
+<p align="center">
+  <img alt="Git Branching Model Diagram" src="./git-flow.png">
+</p>
+
 This means all development is seperated into features. Each feature is a
 collection of related changes. For example, a feature may fix a *single* known
 bug or a faeture may add a new screen to a GUI app.
