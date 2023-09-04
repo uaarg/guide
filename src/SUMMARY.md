@@ -5,8 +5,6 @@
  - [Our Projects](./projects.md)
    - [Pigeon](./pigeon.md)
    - [Shepard](./shepard.md)
+ - [Development Workflows](./workflows.md)
  - [Important Technologies](./tech.md)
    - [MAVLink](./mavlink.md)
-<!--  Temporarily removed as this page is empty
- - [Common Workflows + Tips](./workflows.md)
--->
