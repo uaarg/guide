@@ -8,3 +8,4 @@
  - [Development Workflows](./workflows.md)
  - [Important Technologies](./tech.md)
    - [MAVLink](./mavlink.md)
+   - [PyQt6](./pyqt.md)
