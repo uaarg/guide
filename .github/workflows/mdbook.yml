@@ -25,7 +25,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      MDBOOK_VERSION: 0.4.21
+      MDBOOK_VERSION: 0.4.34 #updates the version from 0.4.21
     steps:
       - uses: actions/checkout@v3
       - name: Install mdBook
@@ -54,4 +54,3 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v2
 
-        #hello 
