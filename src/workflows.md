@@ -9,9 +9,9 @@ flow](https://nvie.com/posts/a-successful-git-branching-model/).
   <img alt="Git Branching Model Diagram" src="./git-flow.png">
 </p>
 
-This means all development is seperated into features. Each feature is a
+This means all development is separated into features. Each feature is a
 collection of related changes. For example, a feature may fix a *single* known
-bug or a faeture may add a new screen to a GUI app.
+bug or a feature may add a new screen to a GUI app.
 
 Work on these features is structured as follows:
 
@@ -24,7 +24,7 @@ Work on these features is structured as follows:
 
 Periodically, `dev` will be heavily tested. This will happen when one or more
 new features have been merged into `dev`. If any issues are found, fixes are
-merged. Finally, when `dev` is beleived to be stable enough, it is merged into
+merged. Finally, when `dev` is believed to be stable enough, it is merged into
 `main`.
 
 This process is in place to ensure that `main` always contains a stable copy of
