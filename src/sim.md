@@ -29,35 +29,35 @@ Add a connection via UDP and make the address 127.0.0.1:14551 and the connection
 
 #### Install required packages:
 
-`sudo apt-get update`
-`sudo apt-get install git`
-`sudo apt-get install gitk git-gui`
+```sudo apt-get update```
+```sudo apt-get install git```
+```sudo apt-get install gitk git-gui```
 
 #### Clone ArduPilot repository into the simulator directory
-`git clone --recurse-submodules git@github.com:ArduPilot/ardupilot.git`
-`cd ardupilot`
+```git clone --recurse-submodules git@github.com:ArduPilot/ardupilot.git```
+```cd ardupilot```
 
 #### Install required packages for SITL (Software In The Loop)
-`Tools/environment_install/install-prereqs-ubuntu.sh -y`
+```Tools/environment_install/install-prereqs-ubuntu.sh -y```
 
 > NOTE: This installation can be quite lengthy, don't exit out just because its taking too long.
 > Patience is a wonderful thing
 
 Reload the path in order to make these changes take effect.
 Personally, I'd recommend rebooting your system.
-`sudo reboot`
+```sudo reboot```
 
 After your system has finished rebooting:
 
 #### Build the code and configure it for ArduCopter
 
-`./waf configure`
-`./waf copter`
-`./waf clean`
+```./waf configure```
+```./waf copter```
+```./waf clean```
 
 At this point, you can test if everything is working by running
-`sim_vehicle.py -v Copter`
-`mavproxy.py`
+```sim_vehicle.py -v Copter```
+```mavproxy.py```
 If there are no errors, then everything is working. If there are issues, please report them so we can investigate further.
 
 ## Getting the Scripts to run the simulator
@@ -67,23 +67,23 @@ For ease of use, I have created shell scripts that you can run to make things ea
 For those of you who are unfamiliar, a shell script is basically a script you can run which will execute commands as if it were you typing things out in the terminal (with a few exceptions)
 
 You can clone the simulator-scripts repo into your simulator directory and the scripts will be added into the directory
-`git clone git@github.com:uaarg/simulator-scripts.git .`
+```git clone git@github.com:uaarg/simulator-scripts.git .```
 
 Next you need to make these shell scripts executable
-`chmod +x ./sitl.sh ./proxy.sh`
+```chmod +x ./sitl.sh ./proxy.sh```
 
 ## Running the Simulator
 
 Open up 4 terminals
 
-In the first terminal, run `./sitl.sh`
-In the second terminal, run `./proxy.sh`
-In the third terminal, run `./release/apmplanner2`
+In the first terminal, run ```./sitl.sh```
+In the second terminal, run ```./proxy.sh```
+In the third terminal, run ```./release/apmplanner2```
 The fourth terminal is where you will be executing your scripts to run in the simulator
 
 To run a python script, navigate to the root of the directory with the script.
 For example, navigate to the root of shepard and then you can run your scripts as follows:
-`PYTHONPATH=. python3 <path to your script>`
+```PYTHONPATH=. python3 <path to your script>```
 
 After the script is running, you will know if it is running if there is a print statement in your console saying that the connection has been established
 
