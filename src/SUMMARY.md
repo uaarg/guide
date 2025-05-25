@@ -9,3 +9,4 @@
  - [Important Technologies](./tech.md)
    - [MAVLink](./mavlink.md)
    - [PyQt6](./pyqt.md)
+   - [Autopilot Simulator](./sim.md)
