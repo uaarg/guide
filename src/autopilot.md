@@ -75,7 +75,8 @@ Before you can get started working on the Autopilot system (from a programming p
 - Github 
 
 
-> NOTE: Git != Github. "Git and Github is like Porn and Pornhub" - Fadil
+> See the following for more info on the required tools you should be familiar with before getting started.
+> https://uaarg.com/guide/tools.html
 
 From here, you can clone the repository you would like to work on to your local system and start coding away. 
 
