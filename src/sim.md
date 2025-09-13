@@ -8,16 +8,16 @@ scripts or MavLink connections!
 OS: Ubuntu 22.04+ (Or equivalent to it, WSL will also work, please note that
 some functionality in WSL is limited)
 
-## Create Working Environment for your simulator It is recommended to enclose
-your simulator in its own directory for ease of use.
+## Create Working Environment for your simulator 
+It is recommended to enclose your simulator in its own directory for ease of use.
 
 ## Installing APM Planner (for Ubuntu Users)
 
 Follow through the Ubuntu 22.04 LTS installation from here:
 https://github.com/ArduPilot/apm_planner?tab=readme-ov-file#linux
 
-## Installing QGroundControl (For WSL Users) Unfortunately there are connection
-issues over UDP for APM Planner so for now you can just run QGroundControl
+## Installing QGroundControl (For WSL Users) 
+Unfortunately there are connection issues over UDP for APM Planner so for now you can just run QGroundControl
 
 https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html#ubuntu
 
@@ -37,14 +37,14 @@ sudo apt-get install git
 sudo apt-get install gitk git-gui
 ```
 
-#### Clone ArduPilot repository into the simulator directory
+#### Clone the ArduPilot repository into the simulator directory
 
 ```
 git clone --recurse-submodules git@github.com:ArduPilot/ardupilot.git
 cd ardupilot
 ```
 
-#### Install required packages for SITL (Software In The Loop)
+#### Install the required packages for SITL (Software In The Loop)
 
 ```
 Tools/environment_install/install-prereqs-ubuntu.sh -y
@@ -70,7 +70,7 @@ After your system has finished rebooting:
 ./waf clean
 ```
 
-At this point, you can test if everything is working by running
+At this point, you can test if everything is working by running. You most likely will need to reload the path for this to work (open a new terminal window)
 
 ```
 sim_vehicle.py -v Copter
@@ -108,7 +108,9 @@ Open up 4 terminals
 
 1. In the first terminal, run `./sitl.sh`
 2. In the second terminal, run `./proxy.sh`
-3. In the third terminal, run `./release/apmplanner2`
+3. If using APM planner: In the third terminal, run `./release/apmplanner2` from within the APMplanner directory.
+   
+   If using QGC, then run the downloaded AppImage/App for ubuntu/mac respectively
 4. The fourth terminal is where you will be executing your scripts to run in
    the simulator
 
