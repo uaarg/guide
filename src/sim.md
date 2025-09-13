@@ -11,24 +11,7 @@ some functionality in WSL is limited)
 ## Create Working Environment for your simulator 
 It is recommended to enclose your simulator in its own directory for ease of use.
 
-## installing APM Planner
-### Installing APM Planner for Ubuntu
-
-Follow through the Ubuntu 22.04 LTS installation from here:
-[https://github.com/ArduPilot/apm_planner?tab=readme-ov-file#linux](https://github.com/ArduPilot/apm_planner?tab=readme-ov-file#linux)
-
-### Installing APM Planner for Mac
-follow the mac instructions here:
-[https://github.com/ArduPilot/apm_planner?tab=readme-ov-file#mac-os-x](https://github.com/ArduPilot/apm_planner?tab=readme-ov-file#mac-os-x)
-
-> note: If compiling with qmake ensure nproc is installed. To check try running `nproc`; it should print a number to the terminal.
-> To install it do:
-> ```
-> brew install coreutils
-> ```
-
-## Installing QGroundControl (For WSL Users) 
-Unfortunately there are connection issues over UDP for APM Planner so for now you can just run QGroundControl
+## Installing QGroundControl  
 
 [https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html#ubuntu](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html#ubuntu)
 
