@@ -108,7 +108,9 @@ Open up 4 terminals
 
 1. In the first terminal, run `./sitl.sh`
 2. In the second terminal, run `./proxy.sh`
-3. In the third terminal, run `./release/apmplanner2` if using APM planner. If using QGC, then do `
+3. If using APM planner: In the third terminal, run `./release/apmplanner2` from within the APMplanner directory.
+   
+   If using QGC, then run the downloaded AppImage/App for ubuntu/mac respectively
 4. The fourth terminal is where you will be executing your scripts to run in
    the simulator
 
