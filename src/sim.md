@@ -8,18 +8,12 @@ scripts or MavLink connections!
 OS: Ubuntu 22.04+ (Or equivalent to it, WSL will also work, please note that
 some functionality in WSL is limited)
 
-## Create Working Environment for your simulator It is recommended to enclose
-your simulator in its own directory for ease of use.
+## Create Working Environment for your simulator 
+It is recommended to enclose your simulator in its own directory for ease of use.
 
-## Installing APM Planner (for Ubuntu Users)
+## Installing QGroundControl  
 
-Follow through the Ubuntu 22.04 LTS installation from here:
-https://github.com/ArduPilot/apm_planner?tab=readme-ov-file#linux
-
-## Installing QGroundControl (For WSL Users) Unfortunately there are connection
-issues over UDP for APM Planner so for now you can just run QGroundControl
-
-https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html#ubuntu
+[https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html#ubuntu](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html#ubuntu)
 
 After installing QGC (QGroundControl): Go to application settings, and then
 network settings. Add a connection via UDP and make the address 127.0.0.1:14551
@@ -28,8 +22,8 @@ and the connection port to be 14551
 ## Set up ArduCopter SITL
 
 ### Set up the build environment for ArduPilot
-
-#### Install required packages:
+#### ubuntu
+##### Install required packages:
 
 ```
 sudo apt-get update
@@ -37,17 +31,48 @@ sudo apt-get install git
 sudo apt-get install gitk git-gui
 ```
 
-#### Clone ArduPilot repository into the simulator directory
+#### mac
+##### install required packages
+1. Install Xcode command line tools and homebrew (both likely already done)
+
+    ```
+    xcode-select --install
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    ```
+2. Install required packages
+
+    ```
+    brew update
+    brew install genromfs
+    brew install gcc-arm-none-eabi
+    ```
+3. Install the latest version of gawk
+    
+    ```
+    brew install gawk
+    ```
+4. Install pip (again, likely already done)
+    ```
+    python -m ensurepip --upgrade
+    ```
+
+### Clone ArduPilot repository into the simulator directory
 
 ```
 git clone --recurse-submodules git@github.com:ArduPilot/ardupilot.git
 cd ardupilot
 ```
 
-#### Install required packages for SITL (Software In The Loop)
+#### Install the required packages for SITL (Software In The Loop)
 
+#### Ubuntu
 ```
 Tools/environment_install/install-prereqs-ubuntu.sh -y
+```
+
+#### Mac
+```
+Tools/environment_install/install-prereqs-mac.sh
 ```
 
 > NOTE: This installation can be quite lengthy, don't exit out just because its
@@ -62,7 +87,7 @@ sudo reboot
 
 After your system has finished rebooting:
 
-#### Build the code and configure it for ArduCopter
+### Build the code and configure it for ArduCopter
 
 ```
 ./waf configure
@@ -70,7 +95,7 @@ After your system has finished rebooting:
 ./waf clean
 ```
 
-At this point, you can test if everything is working by running
+At this point, you can test if everything is working by running. You most likely will need to reload the path for this to work (open a new terminal window)
 
 ```
 sim_vehicle.py -v Copter
@@ -102,15 +127,28 @@ Next you need to make these shell scripts executable
 chmod +x ./sitl.sh ./proxy.sh
 ```
 
+## Installing Gazebo (3D Simulated Environment for Simulating Imaging Scripts in Flight)
+
+Install Gazebo from binary, following the instructions from here:
+https://gazebosim.org/docs/harmonic/install/
+
+Follow these instructions for Gazebo Harmonic based on your OS:
+
+https://github.com/ArduPilot/ardupilot_gazebo/blob/main/README.md
+
+
+Test out if the Gazebo SITL works by following the Usage instructions from the ardupilot_gazebo README.md
+
+
 ## Running the Simulator
 
 Open up 4 terminals
 
 1. In the first terminal, run `./sitl.sh`
 2. In the second terminal, run `./proxy.sh`
-3. In the third terminal, run `./release/apmplanner2`
-4. The fourth terminal is where you will be executing your scripts to run in
-   the simulator
+3. In the third terminal, run QGroundControl or Gazebo (depending on what you are testing)
+
+The fourth terminal will serve as the place for you to run your python scripts.
 
 To run a python script, navigate to the root of the directory with the script.
 For example, navigate to the root of shepard and then you can run your scripts
