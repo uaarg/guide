@@ -11,15 +11,9 @@ some functionality in WSL is limited)
 ## Create Working Environment for your simulator 
 It is recommended to enclose your simulator in its own directory for ease of use.
 
-## Installing APM Planner (for Ubuntu Users)
+## Installing QGroundControl  
 
-Follow through the Ubuntu 22.04 LTS installation from here:
-https://github.com/ArduPilot/apm_planner?tab=readme-ov-file#linux
-
-## Installing QGroundControl (For WSL Users) 
-Unfortunately there are connection issues over UDP for APM Planner so for now you can just run QGroundControl
-
-https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html#ubuntu
+[https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html#ubuntu](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html#ubuntu)
 
 After installing QGC (QGroundControl): Go to application settings, and then
 network settings. Add a connection via UDP and make the address 127.0.0.1:14551
@@ -28,8 +22,8 @@ and the connection port to be 14551
 ## Set up ArduCopter SITL
 
 ### Set up the build environment for ArduPilot
-
-#### Install required packages:
+#### ubuntu
+##### Install required packages:
 
 ```
 sudo apt-get update
@@ -37,7 +31,32 @@ sudo apt-get install git
 sudo apt-get install gitk git-gui
 ```
 
-#### Clone the ArduPilot repository into the simulator directory
+#### mac
+##### install required packages
+1. Install Xcode command line tools and homebrew (both likely already done)
+
+    ```
+    xcode-select --install
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    ```
+2. Install required packages
+
+    ```
+    brew update
+    brew install genromfs
+    brew install gcc-arm-none-eabi
+    ```
+3. Install the latest version of gawk
+    
+    ```
+    brew install gawk
+    ```
+4. Install pip (again, likely already done)
+    ```
+    python -m ensurepip --upgrade
+    ```
+
+### Clone ArduPilot repository into the simulator directory
 
 ```
 git clone --recurse-submodules git@github.com:ArduPilot/ardupilot.git
@@ -46,8 +65,14 @@ cd ardupilot
 
 #### Install the required packages for SITL (Software In The Loop)
 
+#### Ubuntu
 ```
 Tools/environment_install/install-prereqs-ubuntu.sh -y
+```
+
+#### Mac
+```
+Tools/environment_install/install-prereqs-mac.sh
 ```
 
 > NOTE: This installation can be quite lengthy, don't exit out just because its
@@ -62,7 +87,7 @@ sudo reboot
 
 After your system has finished rebooting:
 
-#### Build the code and configure it for ArduCopter
+### Build the code and configure it for ArduCopter
 
 ```
 ./waf configure
