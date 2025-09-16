@@ -127,17 +127,28 @@ Next you need to make these shell scripts executable
 chmod +x ./sitl.sh ./proxy.sh
 ```
 
+## Installing Gazebo (3D Simulated Environment for Simulating Imaging Scripts in Flight)
+
+Install Gazebo from binary, following the instructions from here:
+https://gazebosim.org/docs/harmonic/install/
+
+Follow these instructions for Gazebo Harmonic based on your OS:
+
+https://github.com/ArduPilot/ardupilot_gazebo/blob/main/README.md
+
+
+Test out if the Gazebo SITL works by following the Usage instructions from the ardupilot_gazebo README.md
+
+
 ## Running the Simulator
 
 Open up 4 terminals
 
 1. In the first terminal, run `./sitl.sh`
 2. In the second terminal, run `./proxy.sh`
-3. If using APM planner: In the third terminal, run `./release/apmplanner2` from within the APMplanner directory.
-   
-   If using QGC, then run the downloaded AppImage/App for ubuntu/mac respectively
-4. The fourth terminal is where you will be executing your scripts to run in
-   the simulator
+3. In the third terminal, run QGroundControl or Gazebo (depending on what you are testing)
+
+The fourth terminal will serve as the place for you to run your python scripts.
 
 To run a python script, navigate to the root of the directory with the script.
 For example, navigate to the root of shepard and then you can run your scripts
