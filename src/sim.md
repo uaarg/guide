@@ -137,8 +137,46 @@ Follow these instructions for Gazebo Harmonic based on your OS:
 https://github.com/ArduPilot/ardupilot_gazebo/blob/main/README.md
 
 
-Test out if the Gazebo SITL works by following the Usage instructions from the ardupilot_gazebo README.md
+Test out if the Gazebo SITL works by running sitl.sh, proxy.sh, and the following:
 
+```
+export GZ_SIM_SYSTEM_PLUGIN_PATH=$HOME/ardupilot_gazebo/build:$GZ_SIM_SYSTEM_PLUGIN_PATH
+export GZ_SIM_RESOURCE_PATH=$HOME/ardupilot_gazebo/models:$HOME/ardupilot_gazebo/worlds:$GZ_SIM_RESOURCE_PATH
+```
+
+NOTE: If someone could find a way to properly implement this in a shell script that would be goated
+
+```
+gz sim -v4 -r iris_runway.sdf
+```
+
+and in the proxy.sh window, run the following:
+```
+mode guided
+arm throttle
+takeoff 5
+```
+
+If everything works, the drone in the gazebo simulator will take off 
+
+### Imaging Simulation
+
+Go to Application Settings -> Video in QGroundControl and select UDP h.264 Video Stream and set the UDP URL to '127.0.0.1:5600'
+
+Then run the following 
+
+```
+export GZ_SIM_SYSTEM_PLUGIN_PATH=$HOME/ardupilot_gazebo/build:$GZ_SIM_SYSTEM_PLUGIN_PATH
+export GZ_SIM_RESOURCE_PATH=$HOME/ardupilot_gazebo/models:$HOME/ardupilot_gazebo/worlds:$GZ_SIM_RESOURCE_PATH
+gz sim -v4 -r iris_runway.sdf
+```
+
+And in a seperate terminal window run: 
+```
+gz topic -t /world/iris_runway/model/mount/model/gimbal/link/pitch_link/sensor/camera/image/enable_streaming -m gz.msgs.Boolean -p "data: 1"
+```
+
+If everything works, you'll be able to see a video stream in your QGroundControl Window
 
 ## Running the Simulator
 
@@ -147,6 +185,8 @@ Open up 4 terminals
 1. In the first terminal, run `./sitl.sh`
 2. In the second terminal, run `./proxy.sh`
 3. In the third terminal, run QGroundControl or Gazebo (depending on what you are testing)
+
+If you are running Gazebo, see the instructions to run gazebo in the installing gazebo instructions
 
 The fourth terminal will serve as the place for you to run your python scripts.
 
