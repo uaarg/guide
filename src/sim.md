@@ -124,23 +124,77 @@ git clone git@github.com:uaarg/simulator-scripts.git
 Next you need to make these shell scripts executable
 
 ```
-chmod +x ./sitl.sh ./proxy.sh
+chmod +x ./sitl.sh ./proxy.sh ./camera.sh
 ```
+
+## Installing Gazebo (3D Simulated Environment for Simulating Imaging Scripts in Flight)
+
+Install Gazebo from binary, following the instructions from here:
+https://gazebosim.org/docs/harmonic/install/
+
+Follow these instructions for Gazebo Harmonic based on your OS:
+
+https://github.com/ArduPilot/ardupilot_gazebo/blob/main/README.md
+
+
+Test out if the Gazebo SITL works by running sitl.sh, proxy.sh, and the following:
+
+```
+export GZ_SIM_SYSTEM_PLUGIN_PATH=$HOME/ardupilot_gazebo/build:$GZ_SIM_SYSTEM_PLUGIN_PATH
+export GZ_SIM_RESOURCE_PATH=$HOME/ardupilot_gazebo/models:$HOME/ardupilot_gazebo/worlds:$GZ_SIM_RESOURCE_PATH
+```
+
+NOTE: If someone could find a way to properly implement this in a shell script that would be goated
+
+```
+gz sim -v4 -r iris_runway.sdf
+```
+
+and in the proxy.sh window, run the following:
+```
+mode guided
+arm throttle
+takeoff 5
+```
+
+If everything works, the drone in the gazebo simulator will take off 
+
+### Imaging Simulation
+
+Go to Application Settings -> Video in QGroundControl and select UDP h.264 Video Stream and set the UDP URL to '127.0.0.1:5600'
+
+Then run the following 
+
+```
+export GZ_SIM_SYSTEM_PLUGIN_PATH=$HOME/ardupilot_gazebo/build:$GZ_SIM_SYSTEM_PLUGIN_PATH
+export GZ_SIM_RESOURCE_PATH=$HOME/ardupilot_gazebo/models:$HOME/ardupilot_gazebo/worlds:$GZ_SIM_RESOURCE_PATH
+gz sim -v4 -r iris_runway.sdf
+```
+
+And in a seperate terminal window run: 
+```
+gz topic -t /world/iris_runway/model/iris_with_gimbal/model/gimbal/link/pitch_link/sensor/camera/image/enable_streaming -m gz.msgs.Boolean -p "data: 1"
+```
+
+If you change what world you are running or the model that contains the camera topic then you must change the topic to be whatever new topic you have
+
+If everything works, you'll be able to see a video stream in your QGroundControl Window
 
 ## Running the Simulator
 
 Open up 4 terminals
 
-1. In the first terminal, run `./sitl.sh`
+1. In the first terminal, run `./camera.sh` if doing Gazebo Simulations
 2. In the second terminal, run `./proxy.sh`
-3. If using APM planner: In the third terminal, run `./release/apmplanner2` from within the APMplanner directory.
-   
-   If using QGC, then run the downloaded AppImage/App for ubuntu/mac respectively
-4. The fourth terminal is where you will be executing your scripts to run in
-   the simulator
+3. In the third terminal, run Gazebo via gz sim -v4 -r <world>
+4. (Optional) run QGroundControl
+
+If you are running Gazebo, see the instructions to run gazebo in the installing gazebo instructions
+
+The fourth terminal will serve as the place for you to run your python scripts.
 
 To run a python script, navigate to the root of the directory with the script.
-For example, navigate to the root of shepard and then you can run your scripts
+For example, navigate to the root of shepard (or whatever directory you have your scripts in) and then you can run your scripts
 as follows:
 
 ```
@@ -150,6 +204,5 @@ PYTHONPATH=. python3 <path to your script>
 After the script is running, you will know if it is running if there is a print
 statement in your console saying that the connection has been established
 
-To start flying the drone in the simulator, you will need to go into the
-mission planner, set the mode to `Guided` and then arm the drone and it will
+To start flying the drone in the simulator, you will need to go into QGroundControl, set the mode to `Guided` and then arm the drone and it will
 start flying.
