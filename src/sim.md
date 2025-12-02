@@ -124,7 +124,7 @@ git clone git@github.com:uaarg/simulator-scripts.git
 Next you need to make these shell scripts executable
 
 ```
-chmod +x ./sitl.sh ./proxy.sh
+chmod +x ./sitl.sh ./proxy.sh ./camera.sh
 ```
 
 ## Installing Gazebo (3D Simulated Environment for Simulating Imaging Scripts in Flight)
@@ -173,8 +173,10 @@ gz sim -v4 -r iris_runway.sdf
 
 And in a seperate terminal window run: 
 ```
-gz topic -t /world/iris_runway/model/mount/model/gimbal/link/pitch_link/sensor/camera/image/enable_streaming -m gz.msgs.Boolean -p "data: 1"
+gz topic -t /world/iris_runway/model/iris_with_gimbal/model/gimbal/link/pitch_link/sensor/camera/image/enable_streaming -m gz.msgs.Boolean -p "data: 1"
 ```
+
+If you change what world you are running or the model that contains the camera topic then you must change the topic to be whatever new topic you have
 
 If everything works, you'll be able to see a video stream in your QGroundControl Window
 
@@ -182,16 +184,17 @@ If everything works, you'll be able to see a video stream in your QGroundControl
 
 Open up 4 terminals
 
-1. In the first terminal, run `./sitl.sh`
+1. In the first terminal, run `./camera.sh` if doing Gazebo Simulations
 2. In the second terminal, run `./proxy.sh`
-3. In the third terminal, run QGroundControl or Gazebo (depending on what you are testing)
+3. In the third terminal, run Gazebo via gz sim -v4 -r <world>
+4. (Optional) run QGroundControl
 
 If you are running Gazebo, see the instructions to run gazebo in the installing gazebo instructions
 
 The fourth terminal will serve as the place for you to run your python scripts.
 
 To run a python script, navigate to the root of the directory with the script.
-For example, navigate to the root of shepard and then you can run your scripts
+For example, navigate to the root of shepard (or whatever directory you have your scripts in) and then you can run your scripts
 as follows:
 
 ```
@@ -201,6 +204,5 @@ PYTHONPATH=. python3 <path to your script>
 After the script is running, you will know if it is running if there is a print
 statement in your console saying that the connection has been established
 
-To start flying the drone in the simulator, you will need to go into the
-mission planner, set the mode to `Guided` and then arm the drone and it will
+To start flying the drone in the simulator, you will need to go into QGroundControl, set the mode to `Guided` and then arm the drone and it will
 start flying.
