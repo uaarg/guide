@@ -1,5 +1,5 @@
 # Our Projects
 
   - [Emu](./emu.md)
-  - [MAVCtl](./mavctl.md)
+  - [MAVCTL](./mavctl.md)
   - [Shepard](./shepard.md)
