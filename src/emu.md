@@ -8,4 +8,4 @@ Repository: [https://github.com/uaarg/emu](https://github.com/uaarg/emu).
 
 ## Getting Started
 
-Emu has a basic guide in it's [readme](https://github.com/uaarg/emu?tab=readme-ov-file#install-front-end-dependancies).
+Emu has a basic guide in its [readme](https://github.com/uaarg/emu?tab=readme-ov-file#install-front-end-dependancies).
