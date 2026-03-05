@@ -1,6 +1,6 @@
 # Pigeon
 
-Pigeon is UAARG's ground station imaging software. It is used to analyze images
+Pigeon is UAARG's old ground station imaging software. It was used to analyze images
 received from the aircraft through a combination of manual and automatic
 processes.
 
