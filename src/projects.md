@@ -1,4 +1,5 @@
 # Our Projects
 
-  - [Pigeon](./pigeon.md)
+  - [Emu](./emu.md)
+  - [MAVCTL](./mavctl.md)
   - [Shepard](./shepard.md)

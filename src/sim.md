@@ -16,7 +16,7 @@ It is recommended to enclose your simulator in its own directory for ease of use
 [https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html#ubuntu](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html#ubuntu)
 
 After installing QGC (QGroundControl): Go to application settings, and then
-network settings. Add a connection via UDP and make the address 127.0.0.1:14551
+comm links. Add a link via UDP and make the address 127.0.0.1:14551
 and the connection port to be 14551
 
 ## Set up ArduCopter SITL
