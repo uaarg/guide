@@ -8,7 +8,7 @@ At UAARG Airframe, we do a lot of things, some of which include aero design, ele
 
 ## Some things you should be familiar with
 
- - SolidWorks (See [this](/guide/src/solidworks.md) for a SolidWorks Guide)
+ - SolidWorks (See [this](./solidworks.md) for a SolidWorks Guide)
  - 3D Printing
  - [Basic Aerodynamics](https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/learn-about-aerodynamics/)
  - Basic Structural Analysis

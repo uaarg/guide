@@ -4,13 +4,12 @@
   [<a href="https://uaarg.com/guide/">Read it Now</a>]
 </h4>
 
-This is an mdbook containing documentation and tutorials for those working with
-the UAARG code bases.
+This is an mdbook containing onboarding documentation and tutorials for all of
+UAARG's subteams: Airframe, Electrical, Software, and Operations.
 
-The entire book is meant to be self-contained. It should link to or explain all
-concepts new members need to be productive on our codebases. Larger concepts
-like Python programming or CS theory would be out of scope, but resources
-should still be linked where possible.
+Each subteam has its own folder under `src/` (e.g. `src/software/`), with a
+`README.md` as the subteam's landing page. Add new pages to the relevant folder
+and link them in `src/SUMMARY.md`.
 
 The book is viewable at [uaarg.com/guide](https://uaarg.com/guide/).
 

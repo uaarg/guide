@@ -1,0 +1,5 @@
+/* Extra padding for table cells (mdBook default is 3px 20px) */
+table th,
+table td {
+    padding: 10px 20px;
+}
