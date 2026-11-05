@@ -4,3 +4,6 @@ language = "en"
 multilingual = false
 src = "src"
 title = "UAARG Guide"
+
+[output.html]
+additional-css = ["assets/custom.css"]

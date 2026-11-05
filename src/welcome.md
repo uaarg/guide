@@ -1,14 +1,16 @@
 # Welcome
 
-This is an mdbook containing documentation and tutorials for those working with the UAARG code bases.
-
-The entire book is meant to be self-contained. It should link to or explain all concepts new members need to be productive on our codebases. Larger concepts like Python programming or CS theory would be out of scope, but resources should still be linked where possible.
+Welcome to the UAARG (University of Alberta Aerial Robotics Group) guide! This
+book holds onboarding documentation and tutorials for all of UAARG's subteams.
 
 The book is viewable at [uaarg.com/guide](https://uaarg.com/guide).
 
-## Getting Started
+## Subteams
 
-Start by setting up all required tools in the [tools](./tools.md) chapter.
+ - [Airframe](./airframe/index.md)
+ - [Electrical](./electrical/index.md)
+ - [Software](./software/index.md)
+ - [Operations](./operations/index.md)
 
 ## Contributing to the Docs
 
