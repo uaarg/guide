@@ -18,11 +18,8 @@ Almost all STM32 firmware is written in C. You don't need to be an expert, but
 you should be comfortable with:
 
 - **Basic syntax:** variables, functions, control flow, arrays and structs
-- **Pointers:** what they are, how to dereference them, and pointer arithmetic
 - **Fixed-width integer types:** `uint8_t`, `uint16_t`, `uint32_t`, etc. from
   `<stdint.h>`
-- **The `volatile` keyword:** why variables that hardware or interrupts can
-  change must be marked `volatile`
 - **Header and source files:** how `.h` and `.c` files fit together, and how
   `#include` and `#define` work
 
@@ -41,10 +38,11 @@ You should also have a basic understanding of how microcontrollers work:
 - **Interrupts:** how hardware events pause normal execution to run a handler
 - **Communication protocols:** UART, I2C, SPI and CAN at a high level
 
-You will also need to read **datasheets** and **reference manuals**. The
-reference manual for your specific STM32 chip describes every peripheral and
-register, and is the main source of truth when something doesn't behave as
-expected.
+You will also need to be able to understand **PCB Schematics** and **Datasheets**.
+These will be the documents which will allow you to understand the hardware 
+which you are writing firmware for. If you are ever confused about a 
+schematic or a datasheet, don't hesitiate to ask the PCB designer or an 
+electrical lead for clarification. 
 
 Basic electronics knowledge (voltage, current, pull-up resistors, and using a
 multimeter) also helps a lot when debugging.
