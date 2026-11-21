@@ -10,11 +10,8 @@ The book is viewable at [uaarg.com/guide](https://uaarg.com/guide).
  - [Airframe](./airframe/index.md)
  - [Electrical](./electrical/index.md)
  - [Software](./software/index.md)
+   - [Testing Emu with Shepard](./software/emu-shepard.md)
  - [Operations](./operations/index.md)
-
-## Guides
-
- - [Testing Emu with Shepard](./software/emu-shepard.md)
 
 ## Contributing to the Docs
 
