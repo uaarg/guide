@@ -12,6 +12,10 @@ The book is viewable at [uaarg.com/guide](https://uaarg.com/guide).
  - [Software](./software/index.md)
  - [Operations](./operations/index.md)
 
+## Guides
+
+ - [Testing Emu with Shepard](./software/emu-shepard.md)
+
 ## Contributing to the Docs
 
 See the [guide repository](https://github.com/uaarg/guide) to make changes to

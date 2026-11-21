@@ -11,6 +11,7 @@
     - [Development Workflows](./software/workflows.md)
   - [Projects](./software/projects.md)
     - [Shepard](./software/shepard.md)
+    - [Testing Emu with Shepard](./software/emu-shepard.md)
   - [Technologies](./software/tech.md)
     - [Autopilot System](./software/autopilot.md)
     - [Autopilot Simulator](./software/sim.md)
